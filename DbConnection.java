@@ -1,0 +1,32 @@
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+
+public class DbConnection 
+{
+	Connection con;
+
+	DbConnection() 
+	{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Library_Management","root","");
+			System.out.println("Connection got Successfull");
+		}
+		
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
+	public static void main(String[] args) throws Exception
+	{
+		
+		new DbConnection();
+		
+	}
+
+}
